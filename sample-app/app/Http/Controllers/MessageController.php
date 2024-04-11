@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Message;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,4 +27,5 @@ class MessageController extends Controller
 
         return redirect('/messages');
     }
+
 }

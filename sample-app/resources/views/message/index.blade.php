@@ -20,6 +20,7 @@
             <li>{{$message->id . "." . $message->body}}</li>{{--bodyキーの要素を出力--}}
             @endforeach
         </ul>
+
     </main>
 </body>
 </html>
