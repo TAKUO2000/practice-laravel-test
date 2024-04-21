@@ -7,13 +7,24 @@
 <body>
     <main>
         <h1>書籍登録</h1>
-        <form action="{{route(book.store)}}" method="POST">
+        @if ($errors->any())
+        <div style="color:red">
+        <ul>
+            @foreach ($errors -> all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+        @endif
+
+        <form action="{{route('book.store')}}" method="POST">
             @csrf
             <div>
                 <label>カテゴリー</label>
                 <select name="category_id">
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">
+                        <option value="{{ $category->id }}"
+                            @selected($category->id == old('category_id'))>
                             {{ $category -> title }}
                         </option>
                     @endforeach
@@ -21,11 +32,13 @@
             </div>
             <div>
                 <label>タイトル</label>
-                <input type="text" name = "title">
+                <input type="text" name = "title"
+                    value = " {{ old('title')}} ">
             </div>
             <div>
                 <label>価格</label>
-                <input type="text" name = "price">
+                <input type="text" name = "price"
+                    value = "{{ old('price')}}">
             </div>
             <input type="submit" value="送信">
         </form>
