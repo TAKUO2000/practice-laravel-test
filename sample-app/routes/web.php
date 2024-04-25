@@ -28,5 +28,6 @@ Route::prefix('admin/books')
     Route::get('create','create')->name('create');
     Route::post('','store')->name('store');
     Route::get('{book}/edit','edit')->whereNumber('book')->name('edit');
+    Route::put('{book}','update')->whereNumber('book')->name('update');
     });
 
