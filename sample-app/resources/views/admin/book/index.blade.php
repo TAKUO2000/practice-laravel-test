@@ -4,7 +4,7 @@
     </x-slot:title>
     <main>
         <h1>書籍一覧</h1>
-        @if (session('messages'))
+        @if (session('message'))
             <p>{{session('message')}}</p>
         @endif
     <a href="{{route('book.create')}}">追加</a>
